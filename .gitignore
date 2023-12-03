@@ -424,4 +424,8 @@ gmon.out
 !**/example/obj/
 !**/example/obj/*.obj
 
+# dll
+/Parser/lib/*.lib
+
+# example
 **/App/example
