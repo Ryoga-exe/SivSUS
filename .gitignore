@@ -414,5 +414,5 @@ gmon.out
 # **/App/engine
 # **/App/dll
 
-# dll
+# lib
 /Parser/lib/*.lib
