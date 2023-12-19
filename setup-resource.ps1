@@ -23,6 +23,7 @@ foreach ($resource in $resources) {
     $soundtouchPath = (Join-Path -Path $directory -ChildPath "dll/soundtouch/SoundTouch_x64.dll")
     if (-Not(Test-Path -Path $soundtouchPath)) {
         Write-Host "${soundtouchPath} does not exist." -ForegroundColor Red
+        Write-Host "Download..." -ForegroundColor Cyan
         Invoke-WebRequest -Uri "https://github.com/Siv3D/OpenSiv3D/raw/main/WindowsDesktop/App/dll/soundtouch/SoundTouch_x64.dll" -OutFile $soundtouchPath | Out-Null
     }
 }
