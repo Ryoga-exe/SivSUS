@@ -411,8 +411,8 @@ gmon.out
 
 # Ignore resource files
 **/App/example
-# **/App/engine
-# **/App/dll
+**/App/engine
+**/App/dll
 
 # lib
 /Parser/lib/*.lib
