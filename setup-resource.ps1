@@ -1,4 +1,4 @@
-$resources = (Get-ChildItem -Recurse *.rc)
+$resources = (Get-ChildItem -Recurse Resource.rc)
 
 foreach ($resource in $resources) {
     $directory = $resource.DirectoryName
@@ -18,5 +18,11 @@ foreach ($resource in $resources) {
                 Invoke-WebRequest -Uri "https://github.com/Siv3D/OpenSiv3D/raw/main/WindowsDesktop/App/${path}" -OutFile $abspath | Out-Null
             }
         }
+    }
+
+    $soundtouchPath = (Join-Path -Path $directory -ChildPath "dll/soundtouch/SoundTouch_x64.dll")
+    if (-Not(Test-Path -Path $soundtouchPath)) {
+        Write-Host "${soundtouchPath} does not exist." -ForegroundColor Red
+        Invoke-WebRequest -Uri "https://github.com/Siv3D/OpenSiv3D/raw/main/WindowsDesktop/App/dll/soundtouch/SoundTouch_x64.dll" -OutFile $soundtouchPath | Out-Null
     }
 }
