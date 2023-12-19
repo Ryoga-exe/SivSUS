@@ -1,3 +1,5 @@
+$SIV3D_VERSION = "0.6.13"
+
 $resources = (Get-ChildItem -Recurse Resource.rc)
 
 foreach ($resource in $resources) {
@@ -15,7 +17,7 @@ foreach ($resource in $resources) {
                 Write-Host "${abspath} does not exist." -ForegroundColor Red
                 Write-Host "Download..." -ForegroundColor Cyan
                 New-Item -ItemType "directory" -Path ([System.IO.Path]::GetDirectoryName($abspath)) -Force | Out-Null
-                Invoke-WebRequest -Uri "https://github.com/Siv3D/OpenSiv3D/raw/main/WindowsDesktop/App/${path}" -OutFile $abspath | Out-Null
+                Invoke-WebRequest -Uri "https://github.com/Siv3D/OpenSiv3D/raw/v${SIV3D_VERSION}/WindowsDesktop/App/${path}" -OutFile $abspath | Out-Null
             }
         }
     }
@@ -24,6 +26,6 @@ foreach ($resource in $resources) {
     if (-Not(Test-Path -Path $soundtouchPath)) {
         Write-Host "${soundtouchPath} does not exist." -ForegroundColor Red
         Write-Host "Download..." -ForegroundColor Cyan
-        Invoke-WebRequest -Uri "https://github.com/Siv3D/OpenSiv3D/raw/main/WindowsDesktop/App/dll/soundtouch/SoundTouch_x64.dll" -OutFile $soundtouchPath | Out-Null
+        Invoke-WebRequest -Uri "https://github.com/Siv3D/OpenSiv3D/raw/v${SIV3D_VERSION}/WindowsDesktop/App/dll/soundtouch/SoundTouch_x64.dll" -OutFile $soundtouchPath | Out-Null
     }
 }
