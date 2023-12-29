@@ -7,5 +7,10 @@ struct Hoge
 	{
 
 	}
-	int32 get();
+	s3d::int32 get();
 };
+
+namespace SivSUS
+{
+
+}
