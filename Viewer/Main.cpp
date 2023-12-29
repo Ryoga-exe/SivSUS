@@ -1,5 +1,5 @@
-﻿# include "Parser.hpp"
-# include "Metadata.hpp"
+﻿# include <Siv3D.hpp>
+# include "SivSUS.hpp"
 
 void Main()
 {

@@ -415,4 +415,4 @@ gmon.out
 **/App/dll
 
 # lib
-/Parser/lib/*.lib
+/SivSUS/lib/*.lib
