@@ -3,6 +3,13 @@
 
 namespace SivSUS
 {
+	struct MetadataEntry
+	{
+		MetadataEntry(const s3d::String& line);
+		s3d::String key;
+		s3d::String value;
+	};
+
 	struct Metadata
 	{
 		s3d::String   title;
@@ -21,15 +28,9 @@ namespace SivSUS
 		double        movieOffset = 0.0;
 		double        baseBPM = 60.0;
 		s3d::Array<s3d::String> requests;
-	};
 
-	struct MetadataEntry
-	{
-		MetadataEntry(const s3d::String& line);
-		s3d::String key;
-		s3d::String value;
+		bool SetEntry(const MetadataEntry& entry);
 	};
 
 	Metadata ParseMetadata(const s3d::String& data);
-	bool SetEntry(Metadata& metadata, const MetadataEntry& entry);
 }

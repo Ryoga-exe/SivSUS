@@ -18,6 +18,8 @@ namespace SivSUS
 	{
 		s3d::int32 measure;
 		s3d::Array<double> bpmList;
+		s3d::Array<Note> tapNotes;
+		s3d::Array<Note> holdNotes;
 	};
 
 	Score ParseScore(const s3d::String& data);

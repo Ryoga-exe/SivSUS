@@ -17,80 +17,79 @@ namespace SivSUS
 		{
 			if (line.starts_with(U"#"))
 			{
-				MetadataEntry entry(line);
-				SetEntry(result, entry);
+				result.SetEntry(MetadataEntry(line));
 			}
 		}
 		return result;
 	}
 
-	bool SetEntry(Metadata& metadata, const MetadataEntry& entry)
+	bool Metadata::SetEntry(const MetadataEntry& entry)
 	{
 		const auto key = entry.key;
 		const auto value = entry.value;
 		if (key == U"TITLE")
 		{
-			metadata.title = value;
+			title = value;
 		}
 		else if (key == U"SUBTITLE")
 		{
-			metadata.subtitle = value;
+			subtitle = value;
 		}
 		else if (key == U"ARTIST")
 		{
-			metadata.artist = value;
+			artist = value;
 		}
 		else if (key == U"GENRE")
 		{
-			metadata.genre = value;
+			genre = value;
 		}
 		else if (key == U"DESINGER")
 		{
-			metadata.designer = value;
+			designer = value;
 		}
 		else if (key == U"DIFFICULTY")
 		{
-			metadata.difficulty = value;
+			difficulty = value;
 		}
 		else if (key == U"PLAYLEVEL")
 		{
-			metadata.playLevel = value;
+			playLevel = value;
 		}
 		else if (key == U"SONGID")
 		{
-			metadata.songID = value;
+			songID = value;
 		}
 		else if (key == U"WAVE")
 		{
-			metadata.wave = value;
+			wave = value;
 		}
 		else if (key == U"WAVEOFFSET")
 		{
-			metadata.waveOffset = s3d::ParseOr<double>(value, 0);
+			waveOffset = s3d::ParseOr<double>(value, 0);
 		}
 		else if (key == U"JACKET")
 		{
-			metadata.jacket = value;
+			jacket = value;
 		}
 		else if (key == U"BACKGROUND")
 		{
-			metadata.background = value;
+			background = value;
 		}
 		else if (key == U"MOVIE")
 		{
-			metadata.movie = value;
+			movie = value;
 		}
 		else if (key == U"MOVIEOFFSET")
 		{
-			metadata.movieOffset = s3d::ParseOr<double>(value, 0);
+			movieOffset = s3d::ParseOr<double>(value, 0);
 		}
 		else if (key == U"BASEBPM")
 		{
-			metadata.baseBPM = s3d::ParseOr<double>(value, 60);
+			baseBPM = s3d::ParseOr<double>(value, 60);
 		}
 		else if (key == U"REQUEST")
 		{
-			metadata.requests.push_back(value);
+			requests.push_back(value);
 		}
 		else {
 			return false;
